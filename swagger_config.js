@@ -3,7 +3,7 @@ let swagger_config = {
         info: {
             description: 'REST API for the Doggo App',
             title: "Doggo API",
-            version: '1.0.0',
+            version: '0.1.0',
         },
         host: 'doggo-express-server.herokuapp.com',
         basePath: '/api/v1',
@@ -21,7 +21,7 @@ let swagger_config = {
         }
     },
     basedir: __dirname, //app absolute path
-    files: ['./*.js'] //Path to the API handle folder
+    files: ['./src/endpoints/*.js'] //Path to the API handle folder
 };
 
 module.exports = swagger_config;
