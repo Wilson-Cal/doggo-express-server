@@ -1,0 +1,12 @@
+{
+    "name": "Doggo Express Server",
+    "description": "Rest API for the Doggo App",
+    "repository": "https://git.heroku.com/doggo-express-server.git",
+    "logo": "",
+    "keywords": [
+        "node",
+        "express",
+        "heroku"
+    ],
+    "image": "heroku/nodejs"
+}
