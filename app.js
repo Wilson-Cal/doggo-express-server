@@ -6,6 +6,7 @@ const swaggerConfig = require('./config/swagger_config.js');
 
 // Routes
 const usersRouter = require('./src/endpoints/users.js');
+const dogsRouter = require('./src/endpoints/dogs.js');
 
 const app = express();
 const expressSwagger = require('express-swagger-generator')(app);
@@ -17,6 +18,7 @@ expressSwagger(swaggerConfig)
 app.use(express.json());
 
 app.use(usersRouter);
+app.use(dogsRouter);
 
 app.get(`/`, (req, res) => {
     res.redirect('/api-docs')
