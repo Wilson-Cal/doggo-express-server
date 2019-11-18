@@ -1,7 +1,7 @@
 const express = require('express');
 
 const { getDog, updateDog, createDog, deleteDog } = require('../buisness/dogs.js');
-const { baseUri } = require('../../app_config.js');
+const { baseUri } = require('../../config/app_config');
 
 const router = express.Router();
 
