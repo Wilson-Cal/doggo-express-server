@@ -1,7 +1,7 @@
 const express = require('express');
 
 const { getUser, updateUser, createUser, deleteUser } = require('../buisness/users.js');
-const { baseUri } = require('../../app_config.js');
+const { baseUri } = require('../../config/app_config.js');
 
 const router = express.Router();
 

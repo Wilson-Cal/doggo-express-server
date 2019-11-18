@@ -1,4 +1,4 @@
-let swagger_config = {
+const swagger_config = {
     swaggerDefinition: {
         info: {
             description: 'REST API for the Doggo App',
@@ -21,7 +21,7 @@ let swagger_config = {
         }
     },
     basedir: __dirname, //app absolute path
-    files: ['./src/endpoints/*.js'] //Path to the API handle folder
+    files: ['../src/endpoints/*.js'] //Path to the API handle folder
 };
 
 module.exports = swagger_config;
