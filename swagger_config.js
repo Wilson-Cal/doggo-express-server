@@ -2,6 +2,7 @@ let swagger_config = {
     swaggerDefinition: {
         info: {
             description: 'REST API for the Doggo App',
+            title: "Doggo API"
             version: '1.0.0',
         },
         host: 'doggo-express-server.herokuapp.com',
