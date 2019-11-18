@@ -13,10 +13,8 @@ const baseUri = '/api/v1';
  * @returns {object} 200 - Hello World
  * @returns {Error}  default - Unexpected error
  */
-app.get(`${baseUri}/`, (req, res) => {
-    res.status(200);
-    res.contentType('application/json');
-    res.send(JSON.stringify({ hello: "there" }));
+app.get(`/`, (req, res) => {
+    res.redirect('/api-docs')
 });
 
 expressSwagger(swaggerConfig)
