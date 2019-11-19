@@ -1,5 +1,5 @@
 // Modules
-const express = require("express");
+const express = require('express');
 
 // Config Files
 const swaggerConfig = require('./config/swagger_config.js');
@@ -13,19 +13,19 @@ const expressSwagger = require('express-swagger-generator')(app);
 
 const port = process.env.PORT || 5000;
 
-expressSwagger(swaggerConfig)
+expressSwagger(swaggerConfig);
 
 app.use(express.json());
 
 app.use(usersRouter);
 app.use(dogsRouter);
 
-app.get(`/`, (req, res) => {
-    res.redirect('/api-docs')
+app.get('/', (req, res) => {
+    res.redirect('/api-docs');
 });
 
 app.use((req, res) => {
     res.sendStatus(404);
 });
 
-app.listen(port, () => { console.log(`Doggo Express Server Listening on port ${port}!`) })
+app.listen(port, () => { console.log(`Doggo Express Server Listening on port ${port}!`); });
