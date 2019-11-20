@@ -19,7 +19,6 @@ const createDog = (req, res) => {
         dbRequest(insertQuery);
         const getQuery = 'SELECT * FROM dog';
         const dogs = dbRequest(getQuery);
-        dogs.requestSql = insertQuery;
         res.contentType('application/json');
         res.send(JSON.stringify(dogs));
     } catch (err) {
