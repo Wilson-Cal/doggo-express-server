@@ -17,7 +17,7 @@ const createDog = (req, res) => {
     const validated = owner_id && name && type && age && available && price && color && weight && height;
 
     res.contentType('application/json');
-    res.send(JSON.stringify({ bigboi: validated }));
+    res.send(JSON.stringify({ bigboi: name }));
 };
 
 const deleteDog = (req, res) => {
