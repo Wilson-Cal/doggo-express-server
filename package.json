@@ -16,6 +16,7 @@
   "dependencies": {
     "express": "^4.17.1",
     "express-swagger-generator": "^1.1.15",
-    "pg": "^7.13.0"
+    "pg": "^7.13.0",
+    "uuid-apikey": "^1.4.6"
   }
 }

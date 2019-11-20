@@ -1,6 +1,6 @@
 const express = require('express');
 
-const { getDog, updateDog, createDog, deleteDog } = require('../buisness/dogs.js');
+const { getDog, getDogs, updateDog, createDog, deleteDog } = require('../buisness/dogs.js');
 const { baseUri } = require('../../config/app_config');
 
 const router = express.Router();
@@ -28,6 +28,14 @@ const router = express.Router();
  * @returns {Dog.model} 200 - A dog object
  */
 router.get(`${baseUri}/dogs/:id`, getDog);
+
+/**
+ * @route GET /{user_id}/dogs
+ * @group Dogs
+ * @param {integer} user_id.path.required - The id of the user
+ * @returns {Array<Dog.model>} 200 - A dog object
+ */
+router.get(`${baseUri}/dogs/:id`, getDogs);
 
 /**
  * @route PUT /dogs/{id}

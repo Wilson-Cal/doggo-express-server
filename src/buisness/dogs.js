@@ -1,9 +1,19 @@
 const dbRequest = require('./db_request.js');
 
-const getDog = (req, res) => {
+const getDog = async (req, res) => {
     const { id } = req.params;
+    const selectQuery = `SELECT * FROM dog WHERE id = ${id}`;
+    const dog = await dbRequest(selectQuery);
     res.contentType('application/json');
-    res.send(JSON.stringify({ id }));
+    res.send(JSON.stringify(dog[0]));
+};
+
+const getDogs = async (req, res) => {
+    const { user_id } = req.params;
+    const selectQuery = `SELECT * FROM dog WHERE owner_id = ${user_id}`;
+    const dogs = await dbRequest(selectQuery);
+    res.contentType('application/json');
+    res.send(JSON.stringify(dogs));
 };
 
 const updateDog = (req, res) => {
@@ -42,6 +52,7 @@ const deleteDog = async (req, res) => {
 
 module.exports = {
     getDog,
+    getDogs,
     updateDog,
     createDog,
     deleteDog
