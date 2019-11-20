@@ -26,10 +26,18 @@ const createDog = async (req, res) => {
     }
 };
 
-const deleteDog = (req, res) => {
+const deleteDog = async (req, res) => {
     const { id } = req.params;
-    res.contentType('application/json');
-    res.send(JSON.stringify({ id }));
+    const deleteQuery = `DELETE from dog WHERE id = ${id}`;
+    try {
+        await dbRequest(deleteQuery);
+        res.contentType('application/json');
+        res.send(JSON.stringify({ id }));
+    } catch (err) {
+        res.contentType('application/json');
+        res.sendStatus(500);
+        res.send(JSON.stringify(err));
+    }
 };
 
 module.exports = {
