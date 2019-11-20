@@ -12,13 +12,13 @@ const updateDog = (req, res) => {
     res.send(JSON.stringify({ id }));
 };
 
-const createDog = (req, res) => {
+const createDog = async (req, res) => {
     const { owner_id, name, type, age, available, price, color, weight, height } = req.body;
     const insertQuery = `INSERT INTO dog(owner_id, dog_name, type_of_dog, age, available, price, color, dog_weight, dog_height) VALUES('${owner_id}', '${name}', '${type}', '${age}', '${available}', '${price}', '${color}', '${weight}', '${height}')`;
     try {
-        dbRequest(insertQuery);
+        await dbRequest(insertQuery);
         const getQuery = 'SELECT * FROM dog';
-        const dogs = dbRequest(getQuery);
+        const dogs = await dbRequest(getQuery);
         res.contentType('application/json');
         res.send(JSON.stringify(dogs));
     } catch (err) {
