@@ -7,8 +7,8 @@ const router = express.Router();
 
 /**
  * @typedef Dog
- * @property {integer} id.required
- * @property {integer} owner_id.required
+ * @property {integer} id
+ * @property {integer} owner_id
  * @property {string} name.required
  * @property {string} type.required
  * @property {object} breed.required
