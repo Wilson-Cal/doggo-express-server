@@ -18,7 +18,7 @@ const createDog = async (req, res) => {
     try {
         const newDog = await dbRequest(insertQuery);
         res.contentType('application/json');
-        res.send(JSON.stringify(newDog));
+        res.send(JSON.stringify(newDog[0]));
     } catch (err) {
         res.contentType('application/json');
         res.sendStatus(500);
