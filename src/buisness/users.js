@@ -13,7 +13,7 @@ const updateUser = (req, res) => {
 };
 
 const createUser = (req, res) => {
-    const { id } = req.params;
+    const { id } = req.body;
     res.contentType('application/json');
     res.send(JSON.stringify({ id }));
 };

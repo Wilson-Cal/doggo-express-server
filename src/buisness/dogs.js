@@ -13,11 +13,10 @@ const updateDog = (req, res) => {
 };
 
 const createDog = (req, res) => {
-    const { owner_id, name, type, age, available, price, color, weight, height } = req.params;
+    const { owner_id, name, type, age, available, price, color, weight, height } = req.body;
     const validated = owner_id && name && type && age && available && price && color && weight && height;
-
     res.contentType('application/json');
-    res.send(JSON.stringify({ bigboi: name }));
+    res.send(JSON.stringify({ validated }));
 };
 
 const deleteDog = (req, res) => {
