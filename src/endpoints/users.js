@@ -10,7 +10,6 @@ const router = express.Router();
  * @property {integer} id.required
  * @property {string} username.required
  * @property {string} email.required
- * @property {string} zip_code.required
  */
 
 /**

@@ -8,16 +8,17 @@ const router = express.Router();
 /**
  * @typedef Dog
  * @property {integer} id.required
+ * @property {integer} owner_id.required
  * @property {string} name.required
  * @property {string} type.required
  * @property {object} breed.required
  * @property {integer} age.required
  * @property {object} family.required
- * @property {bool} available.required
- * @property {float} price.required
+ * @property {boolean} available.required
+ * @property {number} price.required
  * @property {string} color.required
- * @property {float} weight.required
- * @property {float} height.required
+ * @property {number} weight.required
+ * @property {number} height.required
  */
 
 /**
