@@ -6,9 +6,14 @@ const { baseUri } = require('../../config/app_config.js');
 const router = express.Router();
 
 /**
+ * @typedef APIRequest
+ * @property {integer} user_id.required
+ */
+
+/**
  * @route POST /api_keys
  * @group Developer Keys
- * @param {string} user_id.body.required - The id of the user
+ * @param {APIRequest.model} user_id.body.required - The id of the user
  * @returns {string} 200 - A newly created API key
  * @security JWT
  */
