@@ -5,7 +5,7 @@ const swagger_config = {
             title: 'Doggo API',
             version: '0.1.0',
         },
-        host: 'https://doggo-express-server.herokuapp.com/',
+        host: 'doggo-express-server.herokuapp.com/',
         basePath: '/api/v1',
         produces: [
             'application/json'
