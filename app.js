@@ -7,6 +7,7 @@ const swaggerConfig = require('./config/swagger_config.js');
 // Routes
 const dogsRouter = require('./src/endpoints/dogs.js');
 const usersRouter = require('./src/endpoints/users.js');
+const accountsRouter = require('./src/endpoints/accounts.js');
 const api_keysRouter = require('./src/endpoints/api_keys.js');
 
 const app = express();
@@ -20,6 +21,7 @@ app.use(express.json());
 
 app.use(dogsRouter);
 app.use(usersRouter);
+app.use(accountsRouter);
 app.use(api_keysRouter);
 
 app.get('/', (req, res) => {
