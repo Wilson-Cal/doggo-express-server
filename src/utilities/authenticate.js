@@ -7,7 +7,7 @@ const authenticate = async (req, res, next) => {
     if (token) {
         try {
             const their_uuid = uuidAPIKey.toUUID(token);
-            const selectQuery = `SELECT * FROM api_key WHERE uuid = ${their_uuid}`;
+            const selectQuery = `SELECT * FROM api_key WHERE uuid = '${their_uuid}'`;
             const uuids = await dbRequest(selectQuery);
             const our_uuid = uuids[0] ? uuids[0].uuid : null;
             if (their_uuid === our_uuid) {
