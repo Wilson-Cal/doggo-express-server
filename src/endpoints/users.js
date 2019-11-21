@@ -17,6 +17,7 @@ const router = express.Router();
  * @group Users
  * @param {string} id.path.required - The id of the user
  * @returns {User.model} 200 - A user object
+ * @security JWT
  */
 router.get(`${baseUri}/users/:id`, getUser);
 

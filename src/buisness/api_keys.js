@@ -1,6 +1,6 @@
 const uuidAPIKey = require('uuid-apikey');
 
-const dbRequest = require('./db_request.js');
+const dbRequest = require('../utilities/db_request.js');
 
 const createApiKey = async (req, res) => {
     const { user_id } = req.body;

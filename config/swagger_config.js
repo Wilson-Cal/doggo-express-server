@@ -5,12 +5,12 @@ const swagger_config = {
             title: 'Doggo API',
             version: '0.1.0',
         },
-        host: 'doggo-express-server.herokuapp.com',
+        host: 'localhost:5000',
         basePath: '/api/v1',
         produces: [
             'application/json'
         ],
-        schemes: ['https'],
+        schemes: ['http'],
         securityDefinitions: {
             JWT: {
                 type: 'apiKey',

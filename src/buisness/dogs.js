@@ -1,19 +1,32 @@
-const dbRequest = require('./db_request.js');
+const dbRequest = require('../utilities/db_request.js');
 
 const getDog = async (req, res) => {
     const { id } = req.params;
-    const selectQuery = `SELECT * FROM dog WHERE id = ${id}`;
-    const dog = await dbRequest(selectQuery);
-    res.contentType('application/json');
-    res.send(JSON.stringify(dog[0]));
+    try {
+        const selectQuery = `SELECT * FROM dog WHERE id = ${id}`;
+        const dogs = await dbRequest(selectQuery);
+        const dog = dogs[0] ? dogs[0] : {};
+        res.contentType('application/json');
+        res.send(JSON.stringify(dog[0]));
+    } catch (err) {
+        res.contentType('application/json');
+        res.sendStatus(500);
+        res.send(JSON.stringify(err));
+    }
 };
 
 const getDogs = async (req, res) => {
     const { user_id } = req.params;
-    const selectQuery = `SELECT * FROM dog WHERE owner_id = ${user_id}`;
-    const dogs = await dbRequest(selectQuery);
-    res.contentType('application/json');
-    res.send(JSON.stringify(dogs));
+    try {
+        const selectQuery = `SELECT * FROM dog WHERE owner_id = ${user_id}`;
+        const dogs = await dbRequest(selectQuery);
+        res.contentType('application/json');
+        res.send(JSON.stringify(dogs));
+    } catch (err) {
+        res.contentType('application/json');
+        res.sendStatus(500);
+        res.send(JSON.stringify(err));
+    }
 };
 
 const updateDog = (req, res) => {

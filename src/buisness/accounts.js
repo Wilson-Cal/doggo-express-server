@@ -1,7 +1,7 @@
 const bcrypt = require('bcrypt');
 const uuidAPIKey = require('uuid-apikey');
 
-const dbRequest = require('./db_request.js');
+const dbRequest = require('../utilities/db_request.js');
 
 const login = async (req, res) => {
     const { email, password } = req.body;
