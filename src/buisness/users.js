@@ -20,7 +20,7 @@ const createUser = async (req, res) => {
     const { username, email, password } = req.body;
     try {
         const hashedPassword = await bcrypt.hash(password, saltRounds);
-        const insertQuery = `INSERT INTO user(username, email, user_password) VALUES('${username}', '${email}', '${hashedPassword}') RETURNING id, username, email`;
+        const insertQuery = `INSERT INTO user_app(username, email, user_password) VALUES('${username}', '${email}', '${hashedPassword}') RETURNING id, username, email`;
         const user = await dbRequest(insertQuery);
         res.contentType('application/json');
         res.send(JSON.stringify(user));
