@@ -8,7 +8,7 @@ const router = express.Router();
 /**
  * @route POST /api_keys
  * @group Developer Keys
- * @param {object} id.body.required - The id of the user
+ * @param {string} user_id.body.required - The id of the user
  * @returns {string} 200 - A newly created API key
  */
 router.post(`${baseUri}/api_keys`, createApiKey);
