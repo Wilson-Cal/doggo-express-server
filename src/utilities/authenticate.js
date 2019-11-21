@@ -25,7 +25,7 @@ const authenticate = async (req, res, next) => {
                     message: 'Invalid token provided.'
                 }));
             } else {
-                return res.status(500).send(JSON.stringify(err));
+                return res.status(500).send(err.message);
             }
         }
 
