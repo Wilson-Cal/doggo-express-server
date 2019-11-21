@@ -62,3 +62,6 @@ typings/
 
 # Ignore database authorization information
 /db
+
+# Ignore Auth files
+auth.txt

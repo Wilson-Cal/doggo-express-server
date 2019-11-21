@@ -27,6 +27,7 @@ router.get(`${baseUri}/users/:id`, getUser);
  * @param {string} id.path.required - The id of the user
  * @param {User.model} user.body.required - A user object to update an existing user
  * @returns {User.model} 200 - The updated user object
+ * @security JWT
  */
 router.put(`${baseUri}/users/:id`, updateUser);
 
@@ -35,6 +36,7 @@ router.put(`${baseUri}/users/:id`, updateUser);
  * @group Users
  * @param {User.model} user.body.required - A user object to create
  * @returns {User.model} 200 - The newly created user object
+ * @security JWT
  */
 router.post(`${baseUri}/users`, createUser);
 
@@ -43,6 +45,7 @@ router.post(`${baseUri}/users`, createUser);
  * @group Users
  * @param {string} id.path.required - The id of the user
  * @returns {bool} 200 - Success or failure
+ * @security JWT
  */
 router.delete(`${baseUri}/users/:id`, deleteUser);
 

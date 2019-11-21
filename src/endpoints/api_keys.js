@@ -10,6 +10,7 @@ const router = express.Router();
  * @group Developer Keys
  * @param {string} user_id.body.required - The id of the user
  * @returns {string} 200 - A newly created API key
+ * @security JWT
  */
 router.post(`${baseUri}/api_keys`, createApiKey);
 
@@ -18,6 +19,7 @@ router.post(`${baseUri}/api_keys`, createApiKey);
  * @group Developer Keys
  * @param {string} id.path.required - The id of the API key
  * @returns {bool} 200 - Success or failure
+ * @security JWT
  */
 router.delete(`${baseUri}/api_keys/:id`, deleteApiKey);
 

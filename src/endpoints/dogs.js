@@ -26,6 +26,7 @@ const router = express.Router();
  * @group Dogs
  * @param {string} id.path.required - The id of the dog
  * @returns {Dog.model} 200 - A dog object
+ * @security JWT
  */
 router.get(`${baseUri}/dogs/:id`, getDog);
 
@@ -34,6 +35,7 @@ router.get(`${baseUri}/dogs/:id`, getDog);
  * @group Dogs
  * @param {integer} user_id.path.required - The id of the user
  * @returns {Array<Dog.model>} 200 - A dog object
+ * @security JWT
  */
 router.get(`${baseUri}/dogs/:id`, getDogs);
 
@@ -43,6 +45,7 @@ router.get(`${baseUri}/dogs/:id`, getDogs);
  * @param {string} id.path.required - The id of the dog
  * @param {Dog.model} dog.body.required - A dog object to update an existing dog
  * @returns {Dog.model} 200 - The updated dog object
+ * @security JWT
  */
 router.put(`${baseUri}/dogs/:id`, updateDog);
 
@@ -51,6 +54,7 @@ router.put(`${baseUri}/dogs/:id`, updateDog);
  * @group Dogs
  * @param {Dog.model} dog.body.required - A dog object to create
  * @returns {Dog.model} 200 - The newly created dog object
+ * @security JWT
  */
 router.post(`${baseUri}/dogs`, createDog);
 
@@ -59,6 +63,7 @@ router.post(`${baseUri}/dogs`, createDog);
  * @group Dogs
  * @param {string} id.path.required - The id of the dog
  * @returns {bool} 200 - Success or failure
+ * @security JWT
  */
 router.delete(`${baseUri}/dogs/:id`, deleteDog);
 
