@@ -23,7 +23,7 @@ expressSwagger(swaggerConfig);
 
 app.use(express.json());
 
-//app.use(appConfig.baseUri, authenticate);
+app.use(appConfig.baseUri, authenticate);
 
 app.use(dogsRouter);
 app.use(usersRouter);
