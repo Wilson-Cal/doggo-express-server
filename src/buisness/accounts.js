@@ -1,6 +1,7 @@
 const bcrypt = require('bcrypt');
 const uuidAPIKey = require('uuid-apikey');
 
+const { createUser } = require('./users.js');
 const dbRequest = require('../utilities/db_request.js');
 
 const login = async (req, res) => {
@@ -32,8 +33,7 @@ const login = async (req, res) => {
 };
 
 const signup = async (req, res) => {
-    res.contentType('application/json');
-    res.send(JSON.stringify({ hello: 'there' }));
+    await createUser(req, res);
 };
 
 module.exports = { login, signup };
