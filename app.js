@@ -1,5 +1,6 @@
 // Modules
 const express = require('express');
+const cors = require('cors');
 
 // Config Files
 const appConfig = require('./config/app_config.js');
@@ -21,6 +22,7 @@ const port = process.env.PORT || 5000;
 
 expressSwagger(swaggerConfig);
 
+app.use(cors);
 app.use(express.json());
 
 app.use(appConfig.baseUri, authenticate);
