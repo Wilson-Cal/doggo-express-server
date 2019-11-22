@@ -25,11 +25,15 @@ expressSwagger(swaggerConfig);
 app.use(cors());
 app.use(express.json());
 
+// Endpoints that do not require authentication
+app.use(accountsRouter);
+
+// Authenticate requests
 app.use(appConfig.baseUri, authenticate);
 
+// Endpoints that require authentication
 app.use(dogsRouter);
 app.use(usersRouter);
-app.use(accountsRouter);
 app.use(api_keysRouter);
 
 app.get('/', (req, res) => {

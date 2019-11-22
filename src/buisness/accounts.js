@@ -18,11 +18,11 @@ const login = async (req, res) => {
             await dbRequest(updateQuery);
             // Send success to the user
             res.contentType('application/json');
-            res.send({ match, cookieValue: cookieValue.apiKey });
+            res.send(JSON.stringify({ match, cookieValue: cookieValue.apiKey }));
         } else {
             // Send failure to user
             res.contentType('application/json');
-            res.send({ match });
+            res.send(JSON.stringify({ match }));
         }
     } else {
         // Send failure to user
@@ -31,4 +31,9 @@ const login = async (req, res) => {
     }
 };
 
-module.exports = { login };
+const signup = async (req, res) => {
+    res.contentType('application/json');
+    res.send(JSON.stringify({ hello: 'there' }));
+};
+
+module.exports = { login, signup };
