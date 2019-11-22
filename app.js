@@ -22,7 +22,7 @@ const port = process.env.PORT || 5000;
 
 expressSwagger(swaggerConfig);
 
-app.use(cors);
+app.use(cors());
 app.use(express.json());
 
 app.use(appConfig.baseUri, authenticate);
