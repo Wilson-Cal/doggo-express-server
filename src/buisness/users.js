@@ -27,6 +27,7 @@ const updateUser = (req, res) => {
 
 const createUser = async (req, res) => {
     const { username, email, password } = req.body;
+    console.log(req.body);
     try {
         const hashedPassword = await bcrypt.hash(password, saltRounds);
         const insertQuery = `INSERT INTO user_app(username, email, user_password) VALUES('${username}', '${email}', '${hashedPassword}') RETURNING id, username, email`;
