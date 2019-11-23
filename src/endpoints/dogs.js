@@ -32,7 +32,7 @@ router.get(`${baseUri}/dogs/:id`, getDog);
  * @route GET /{user_id}/dogs
  * @group Dogs
  * @param {integer} user_id.path.required - The id of the user
- * @returns {Array<Dog.model>} 200 - A dog object
+ * @returns {Array<object>} 200 - A dog object
  * @security JWT
  */
 router.get(`${baseUri}/:user_id/dogs`, getDogs);
