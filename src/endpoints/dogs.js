@@ -7,13 +7,11 @@ const router = express.Router();
 
 /**
  * @typedef Dog
- * @property {integer} id
  * @property {integer} owner_id
  * @property {string} name.required
  * @property {string} type.required
- * @property {object} breed.required
+ * @property {boolean} sex.required
  * @property {integer} age.required
- * @property {object} family.required
  * @property {boolean} available.required
  * @property {number} price.required
  * @property {string} color.required
