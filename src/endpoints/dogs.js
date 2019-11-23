@@ -35,7 +35,7 @@ router.get(`${baseUri}/dogs/:id`, getDog);
  * @returns {Array<Dog.model>} 200 - A dog object
  * @security JWT
  */
-router.get(`${baseUri}/dogs/:id`, getDogs);
+router.get(`${baseUri}/:user_id/dogs`, getDogs);
 
 /**
  * @route PUT /dogs/{id}
