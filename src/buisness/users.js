@@ -38,9 +38,8 @@ const createUser = async (req, res) => {
     } catch (err) {
         res.contentType('application/json');
         res.status(500);
-        res.send(JSON.stringify(err));
+        res.send(err);
     }
-
 };
 
 const deleteUser = async (req, res) => {
