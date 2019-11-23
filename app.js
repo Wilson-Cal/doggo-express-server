@@ -24,8 +24,8 @@ const port = process.env.PORT || 5000;
 expressSwagger(swaggerConfig);
 
 app.use(cors());
-app.use(bodyParser);
-app.use(express.json());
+app.use(bodyParser.json());
+//app.use(express.json());
 
 // Endpoints that do not require authentication
 app.use(accountsRouter);
