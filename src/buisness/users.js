@@ -14,7 +14,7 @@ const getUser = async (req, res) => {
         res.send(JSON.stringify(user));
     } catch (err) {
         res.contentType('application/json');
-        res.sendStatus(500);
+        res.status(500);
         res.send(JSON.stringify(err));
     }
 };
@@ -36,7 +36,7 @@ const createUser = async (req, res) => {
         res.send(JSON.stringify(user));
     } catch (err) {
         res.contentType('application/json');
-        res.sendStatus(500);
+        res.status(500);
         res.send(JSON.stringify(err));
     }
 
@@ -51,7 +51,7 @@ const deleteUser = async (req, res) => {
         res.send(JSON.stringify({ id }));
     } catch (err) {
         res.contentType('application/json');
-        res.sendStatus(500);
+        res.status(500);
         res.send(JSON.stringify(err));
     }
 
