@@ -7,7 +7,7 @@ const getDog = async (req, res) => {
         const dogs = await dbRequest(selectQuery);
         const dog = dogs[0] ? dogs[0] : {};
         res.contentType('application/json');
-        res.send(JSON.stringify(dog[0]));
+        res.send(JSON.stringify(dog));
     } catch (err) {
         res.contentType('application/json');
         res.status(500);
