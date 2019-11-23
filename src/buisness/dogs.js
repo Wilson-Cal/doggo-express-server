@@ -10,7 +10,7 @@ const getDog = async (req, res) => {
         res.send(JSON.stringify(dog[0]));
     } catch (err) {
         res.contentType('application/json');
-        res.sendStatus(500);
+        res.status(500);
         res.send(JSON.stringify(err));
     }
 };
@@ -24,7 +24,7 @@ const getDogs = async (req, res) => {
         res.send(JSON.stringify(dogs));
     } catch (err) {
         res.contentType('application/json');
-        res.sendStatus(500);
+        res.status(500);
         res.send(JSON.stringify(err));
     }
 };
@@ -44,7 +44,7 @@ const createDog = async (req, res) => {
         res.send(JSON.stringify(newDog[0]));
     } catch (err) {
         res.contentType('application/json');
-        res.sendStatus(500);
+        res.status(500);
         res.send(JSON.stringify(err));
     }
 };
@@ -58,7 +58,7 @@ const deleteDog = async (req, res) => {
         res.send(JSON.stringify({ id }));
     } catch (err) {
         res.contentType('application/json');
-        res.sendStatus(500);
+        res.status(500);
         res.send(JSON.stringify(err));
     }
 };

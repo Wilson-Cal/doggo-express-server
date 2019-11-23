@@ -53,7 +53,6 @@ const deleteUser = async (req, res) => {
         res.status(500);
         res.send(JSON.stringify(err));
     }
-
 };
 
 module.exports = {
