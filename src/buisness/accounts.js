@@ -33,7 +33,6 @@ const login = async (req, res) => {
 };
 
 const signup = async (req, res) => {
-    console.log(req);
     await createUser(req, res);
 };
 

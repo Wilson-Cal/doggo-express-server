@@ -1,6 +1,5 @@
 // Modules
 const express = require('express');
-const bodyParser = require('body-parser');
 const cors = require('cors');
 
 // Config Files
@@ -24,10 +23,7 @@ const port = process.env.PORT || 5000;
 expressSwagger(swaggerConfig);
 
 app.use(cors());
-app.use(bodyParser.urlencoded({
-    extended: true
-}));
-app.use(bodyParser.json());
+app.user(express.json());
 
 // Endpoints that do not require authentication
 app.use(accountsRouter);
