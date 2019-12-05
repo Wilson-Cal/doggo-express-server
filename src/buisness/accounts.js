@@ -7,7 +7,7 @@ const dbRequest = require('../utilities/db_request.js');
 const login = async (req, res) => {
     try {
         const { email, password } = req.body;
-        const getQuery = `SELECT password FROM user WHERE email = ${email}`;
+        const getQuery = `SELECT user_password FROM user WHERE email = ${email}`;
 
         const hashedPassword = await dbRequest(getQuery);
         if (hashedPassword) {
