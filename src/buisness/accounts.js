@@ -17,7 +17,7 @@ const login = async (req, res) => {
                 // Generate temp cookie value
                 const cookieValue = uuidAPIKey.create();
                 // Write the temp cookie value to the database
-                const updateQuery = `UPDATE user_app SET temp_auth = ${cookieValue.uuid} WHERE email=${email}`;
+                const updateQuery = `UPDATE user_app SET temp_auth = '${cookieValue.uuid}' WHERE email = ${email}`;
                 await dbRequest(updateQuery);
                 // Send success to the user
                 res.contentType('application/json');
