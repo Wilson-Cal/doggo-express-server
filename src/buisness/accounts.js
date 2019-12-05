@@ -10,7 +10,8 @@ const login = async (req, res) => {
         const getQuery = `SELECT user_password FROM user_app WHERE email = '${email}'`;
 
         const hashedPasswordData = await dbRequest(getQuery);
-        const hashedPassword = hashedPasswordData[0].user_password ? hashedPasswordData[0].user_password : false;
+        console.log(hashedPasswordData);
+        const hashedPassword = hashedPasswordData ? hashedPasswordData[0].user_password : false;
         if (hashedPassword) {
             // Check Hashed password against sent password
             const match = await bcrypt.compare(password, hashedPassword);
