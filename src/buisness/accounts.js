@@ -7,7 +7,7 @@ const dbRequest = require('../utilities/db_request.js');
 const login = async (req, res) => {
     try {
         const { email, password } = req.body;
-        const getQuery = `SELECT user_password FROM user_app WHERE email = ${email}`;
+        const getQuery = `SELECT user_password FROM user_app WHERE email = '${email}'`;
 
         const hashedPassword = await dbRequest(getQuery);
         if (hashedPassword) {
@@ -17,7 +17,7 @@ const login = async (req, res) => {
                 // Generate temp cookie value
                 const cookieValue = uuidAPIKey.create();
                 // Write the temp cookie value to the database
-                const updateQuery = `UPDATE user_app SET temp_auth = '${cookieValue.uuid}' WHERE email = ${email}`;
+                const updateQuery = `UPDATE user_app SET temp_auth = '${cookieValue.uuid}' WHERE email = '${email}'`;
                 await dbRequest(updateQuery);
                 // Send success to the user
                 res.contentType('application/json');
