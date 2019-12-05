@@ -30,9 +30,10 @@ const login = async (req, res) => {
         } else {
             // Send failure to user
             res.contentType('application/json');
-            res.send({ match: false });
+            res.send(JSON.stringify({ match: false }));
         }
     } catch (err) {
+        console.log(err);
         res.contentType('application/json');
         res.status(500);
         res.send(err);
