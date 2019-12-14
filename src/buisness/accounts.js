@@ -18,11 +18,12 @@ const login = async (req, res) => {
                 // Generate temp cookie value
                 const cookieValue = uuidAPIKey.create();
                 // Write the temp cookie value to the database
-                const updateQuery = `UPDATE user_app SET temp_auth = '${cookieValue.uuid}' WHERE email = '${email}'`;
-                await dbRequest(updateQuery);
+                const updateQuery = `UPDATE user_app SET temp_auth = '${cookieValue.uuid}' WHERE email = '${email}' RETURNING id, username, email`;
+                let users = await dbRequest(updateQuery);
+                const user = users[0] ? users[0] : {};
                 // Send success to the user
                 res.contentType('application/json');
-                res.send(JSON.stringify({ match, cookieValue: cookieValue.apiKey }));
+                res.send(JSON.stringify({ match, cookieValue: cookieValue.apiKey, user_id: user.id, email: user.email, username: user.username }));
             } else {
                 // Send failure to user
                 res.contentType('application/json');
