@@ -13,10 +13,17 @@ const authenticate = async (req, res, next) => {
             if (their_uuid === our_uuid) {
                 next();
             } else {
-                return res.status(403).send(JSON.stringify({
-                    success: false,
-                    message: 'Invalid token provided.'
-                }));
+                const userTempAuthSelectQuery = `SELECT * FROM user_app WHERE temp_auth = '${their_uuid}'`;
+                const temp_auth = await dbRequest(userTempAuthSelectQuery);
+                const our_uuid = temp_auth[0] ? temp_auth[0].temp_auth : null;
+                if (their_uuid === our_uuid) {
+                    next();
+                } else {
+                    return res.status(403).send(JSON.stringify({
+                        success: false,
+                        message: 'Invalid token provided.'
+                    }));
+                }
             }
         } catch (err) {
             if (err.message.includes('not a valid apiKey')) {
